@@ -17,7 +17,11 @@ class ArticleController extends AbstractController{
 	public function index() {
 //		return new Response('<html lang="en"><body>Witam</body></html>');
 
-		return $this->render('articles/index.html.twig');
+		$articles = ['First', 'Second', 'Third'];
+
+		return $this->render('articles/index.html.twig', array(
+			'articles' => $articles
+		));
 
 	}
 }
