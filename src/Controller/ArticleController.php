@@ -18,5 +18,6 @@ class ArticleController extends AbstractController{
 //		return new Response('<html lang="en"><body>Witam</body></html>');
 
 		return $this->render('articles/index.html.twig');
+
 	}
 }
