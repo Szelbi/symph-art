@@ -12,19 +12,23 @@ class ArticleController extends AbstractController
 {
 
 	/**
-	 * @Route("/")
-	 * @Method ({"GET"})
+	 * @Route("/", name="article_list")
+	 * @Method({"GET"})
 	 */
-	public function index()
-	{
-//		return new Response('<html lang="en"><body>Witam</body></html>');
+	public function index() {
 
-		$articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+		$articles= $this->getDoctrine()->getRepository(Article::class)->findAll();
 
-		return $this->render('articles/index.html.twig', array(
-			'articles' => $articles
-		));
+		return $this->render('articles/index.html.twig', array('articles' => $articles));
+	}
 
+	/**
+	 * @Route("/article/{id}", name="article_show")
+	 */
+	public function show($id) {
+		$article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+
+		return $this->render('articles/show.html.twig', array('article' => $article));
 	}
 
 	/**
