@@ -46,7 +46,7 @@ class ArticleController extends AbstractController
 
 		$entityManager->flush();
 
-		return new Response('Saves and article with with id of'. $article->getId());
+		return new Response('Saved an article with with id of '. $article->getId());
 	}
 
 }
