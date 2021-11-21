@@ -28,16 +28,6 @@ class ArticleController extends AbstractController
 		return $this->render('articles/index.html.twig', array('articles' => $articles));
 	}
 
-	/**
-	 * @Route("/article/{id}", name="article_show")
-	 */
-	public function show($id)
-	{
-		$article = $this->getDoctrine()->getRepository(Article::class)->find($id);
-
-		return $this->render('articles/show.html.twig', array('article' => $article));
-	}
-
 
 	/**
 	 * @Route("/article/new", name="new_article")
@@ -74,6 +64,18 @@ class ArticleController extends AbstractController
 			'form' => $form->createView()
 		));
 	}
+
+
+	/**
+	 * @Route("/article/{id}", name="article_show")
+	 */
+	public function show($id)
+	{
+		$article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+
+		return $this->render('articles/show.html.twig', array('article' => $article));
+	}
+
 
 	/**
 	 * @Route("/article/save")
